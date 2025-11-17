@@ -13,11 +13,13 @@ from werkzeug.utils import secure_filename
 # Define a Flask app
 app = Flask(__name__)
 
-# Path to your model
-MODEL_PATH = 'E:/COVID-19 DETECTION/Covid19-Detection-Seqential model/Final Working Project/New_Sequential_3.keras'
+# Get the current folder where app.py is located
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Load your trained model
-model = load_model(MODEL_PATH)
+# Join it with the model name
+model_path = os.path.join(base_dir, 'New_Sequential_3.keras')
+
+model = load_model(model_path)
 model.make_predict_function()  # Necessary for Keras
 
 print('Model loaded. Start serving...')
