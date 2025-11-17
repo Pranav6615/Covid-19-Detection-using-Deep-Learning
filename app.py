@@ -19,7 +19,7 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 # Join it with the model name
 model_path = os.path.join(base_dir, 'New_Sequential_3.keras')
 
-model = load_model(model_path)
+model = load_model(model_path, compile=False)
 model.make_predict_function()  # Necessary for Keras
 
 print('Model loaded. Start serving...')
